@@ -1,4 +1,3 @@
-import {  Prisma } from "prisma/prisma-client"
 import { prisma } from "../lib/prisma"
 
 interface DeleteMealRequest {
@@ -16,5 +15,7 @@ export class DeleteMealUseCase {
           id
         }
       })
+      return
   }
+
 }
