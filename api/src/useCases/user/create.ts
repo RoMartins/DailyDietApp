@@ -1,9 +1,6 @@
-interface createUserSchema {
-  name: string,
-  height: string,
-  weight: string, 
-  age: boolean
-}
+import { Prisma } from "prisma/prisma-client";
+import { prisma } from "../../lib/prisma";
+
 
 export class CreateUserUseCase {
 
@@ -11,8 +8,25 @@ export class CreateUserUseCase {
     age,
     height,
     name,
-    weight
-  }: createUserSchema) {
+    weight,
+    email,
+    password_hash
+  }: Prisma.UserCreateInput) {
+
+    const user = await prisma.user.create({
+      data: {
+        age,
+        email,
+        height,
+        name,
+        password_hash,
+        weight,
+      }
+    })
+
+    return {
+      user
+    }
 
   }
 }
