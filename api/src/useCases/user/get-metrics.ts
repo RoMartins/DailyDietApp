@@ -33,7 +33,6 @@ export class GetUserMetricsUseCase {
       { bestOnDietSequence: 0, currentSequence: 0, totalMealOnDiet: 0 , totalMealOffDiet: 0},
     )
 
-  console.log(metrics)
     
    return metrics
     
